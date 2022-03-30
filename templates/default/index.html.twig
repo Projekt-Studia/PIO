@@ -17,6 +17,11 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     <a href="{{ path('app_logout') }}">logout</a>
     {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('admin') }}">Admin panel</a>
+        </li>
+    {% endif %}
 
 </div>
 {% endblock %}
