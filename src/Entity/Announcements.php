@@ -18,7 +18,7 @@ class Announcements
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=128)
      */
     private $title;
 
