@@ -1,0 +1,15 @@
+.auth{
+    margin: 0 auto;
+    &__container{
+        z-index: 1000;
+        margin: 0 auto;
+        width: 30vw;
+        text-align: center;
+        background: white;
+        border: 1px solid $shadow-color;
+        border-radius: 10px;
+        padding: 2vh 2vw;
+        @include shadow;
+        vertical-align: middle;
+    }
+}

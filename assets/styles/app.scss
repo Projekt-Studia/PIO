@@ -1,0 +1,40 @@
+@import './variables.scss';
+@import './mixins.scss';
+@import "~bootstrap/scss/bootstrap";
+@import './auth.scss';
+
+html{
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    width:100vw;
+    height: 7vh;
+    background: $base-color;
+    z-index:100;
+    @include shadow;
+}
+
+.main{
+    &__button{
+        color: $base-color;
+        border-color: $base-color;
+            &:hover{
+                background: $base-color;
+                border-color: $base-color;
+            }
+    }
+    &__link{
+        color: $base-color;
+    }
+}
