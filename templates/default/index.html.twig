@@ -4,18 +4,24 @@
 
 {% block body %}
 <div class="auth__container">
-    <h1>OGŁOSZENIA CEBULAKÓW</h1>
-    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-    <a href="{{ path('app_register') }}"><button type="button" class="btn btn-outline-success main__button">Register</button></a>
-    <a href="{{ path('app_login') }}"><button type="button" class="btn btn-outline-success main__button">Login</button></a>
-    {% endif %}
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <a href="{{ path('app_logout') }}">logout</a>
-    {% endif %}
-    {% if is_granted('ROLE_ADMIN') %}
-        <li class="nav-item">
-            <a class="nav-link" href="{{ path('admin') }}"><button type="button" class="btn btn-outline-success main__button">Admin panel</button></a>
-        </li>
-    {% endif %}
+    <div class="auth__title">
+        <img class="auth__title-image" src="{{ asset('build/images/logo.png') }}">
+        <h1 class="auth__title-text">olXD</h1>
+    </div>
+    <div class="auth__text">OGŁOSZENIA CEBULAKÓW</div>
+    <div class="auth__content">
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_register') }}"><button type="button" class="btn btn-outline-success main__button">Register</button></a>
+        <a href="{{ path('app_login') }}"><button type="button" class="btn btn-outline-success main__button">Login</button></a>
+        {% endif %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_logout') }}"><button type="button" class="btn btn-outline-success main__button">Logout</button></a>
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin') }}"><button type="button" class="btn btn-outline-success main__button">Admin panel</button></a>
+            </li>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
