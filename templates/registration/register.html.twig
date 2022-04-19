@@ -3,15 +3,28 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
-
+    <div class="auth__container">
+    <div class="auth__title">
+        <img class="auth__title-image" src="{{ asset('build/images/logo.png') }}">
+        <h1 class="auth__title-text">olXD</h1>
+    </div>
+    <div class="auth__text">Zacebulkuj się!</div>
+    <div class="auth__content">
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
+    <div class="form-group">
+    <div class="form-control"> {{ form_row(registrationForm.email) }} </div>
+    <small id="emailHelp" class="form-text text-muted">Cebula cebuli cebulą</small>
+  </div>
+        
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn btn-outline-success main__button">Przyklep rejestrację</button>
     {{ form_end(registrationForm) }}
+    </div>
+    </div>
+    
+    
 {% endblock %}

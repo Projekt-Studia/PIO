@@ -70,3 +70,13 @@ body{
         color: $base-color;
     }
 }
+.form-control{
+    font-size: 2.5rem;
+    margin: 2vh auto;
+    
+    @include lg{
+        margin: 1vw auto;
+        font-size: 1rem;
+    }
+
+}

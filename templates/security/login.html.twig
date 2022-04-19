@@ -1,8 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Zaloguj się{% endblock %}
 
 {% block body %}
+ <div class="auth__container">
+    <div class="auth__title">
+        <img class="auth__title-image" src="{{ asset('build/images/logo.png') }}">
+        <h1 class="auth__title-text">olXD</h1>
+    </div>
+    <div class="auth__text">Zaloguj</div>
+    <div class="auth__content">
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -10,16 +17,16 @@
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            Jesteś zalogowany jako {{ app.user.username }}, <a href="{{ path('app_logout') }}">Wyloguj</a>
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
+    <div class="form-group">
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Adres email" autocomplete="email" required autofocus>
+    </div> 
+    <div class="form-group">
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Hasło" autocomplete="current-password" required>
+    </div>
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
@@ -35,8 +42,10 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
+    <button class="btn btn-outline-success main__button" type="submit">
+        Zaloguj
     </button>
 </form>
+</div>
+</div>
 {% endblock %}
