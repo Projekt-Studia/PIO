@@ -12,16 +12,20 @@
     <div class="auth__content">
     {{ form_start(registrationForm) }}
     <div class="form-group">
-    <div class="form-control"> {{ form_row(registrationForm.email) }} </div>
-    <small id="emailHelp" class="form-text text-muted">Cebula cebuli cebulą</small>
+    {{ form_row(registrationForm.email, {label:"Email ", attr: { class: 'form-control', placeholder: 'Email' } })}}
   </div>
         
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label: "Hasło ", 
+            attr: { class: 'form-control',
+            placeholder: 'Hasło '}
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            label: 'Zgadzam się z regulaminem ',
+            attr: { class: "form-check-input"}
+        }) }}
 
-        <button type="submit" class="btn btn-outline-success main__button">Przyklep rejestrację</button>
+        <button type="submit" class="btn btn-outline-success main__button">Zarejestruj</button>
     {{ form_end(registrationForm) }}
     </div>
     </div>

@@ -16,9 +16,11 @@
     <body>
     <div class="container">
         <div class="navbar">
-            <img class="navbar__image" src="{{ asset('build/images/logo.png') }}">
+            <a href="{{ path('app_default') }}"><img class="navbar__image" src="{{ asset('build/images/logo.png') }}"></a>
             <div class="navbar__menu">
+            {% block icons %}
 
+            {% endblock %}
             </div>
         </div>
             {% block body %}

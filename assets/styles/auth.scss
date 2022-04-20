@@ -45,12 +45,3 @@
         padding: 0 1vh;
     }
 }
-
-a {
-    text-decoration:none;
-    color: $base-color;
-    &:hover,&:focus, &:visited{
-        text-decoration:none;
-        color: black;
-    }
-}

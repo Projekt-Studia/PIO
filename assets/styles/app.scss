@@ -15,6 +15,15 @@ body{
     padding:0;
 }
 
+a {
+    text-decoration:none;
+    color: $base-color;
+    &:hover,&:focus, &:visited{
+        text-decoration:none;
+        color: black;
+    }
+}
+
 .container{
     width:100vw;
     height:100vh;
@@ -44,6 +53,17 @@ body{
         margin:0;
         padding:0;
         height: 5vh;
+        color: white;
+        @include flex;
+        justify-content: center;
+        a{
+            color: white;
+            text-decoration: none;
+            &:hover,&:focus, &:visited{
+                text-decoration:none;
+                color: white;
+            }
+        }
     }
 }
 
