@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AnnouncementsController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper-annoucements" style="display: flex; width: 50%;">
+    {% for announcement in announcements %}
+            {% if announcement.active %}
+                <div class="annoucement-item"
+                     style="
+                     margin: 15px;
+                     display: inline; /* the default for span */
+                     width: 200px;
+                     height: 200px;
+                     padding: 5px;
+                     border: 1px solid blue;
+                     background-color: grey;">
+                        <li>{{ announcement.title }}</li>
+                        <li>{{ announcement.description }}</li>
+                        <li>{{ announcement.categoryId.name }}</li>
+                        <li>{{ announcement.userId.email }}</li>
+                        <li>{{ announcement.price }}</li>
+                        <li>{{ announcement.views }}</li>
+                </div>
+            {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
