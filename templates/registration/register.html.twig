@@ -12,16 +12,16 @@
     <div class="auth__content">
     {{ form_start(registrationForm) }}
     <div class="form-group">
-    {{ form_row(registrationForm.email, {label:"Email ", attr: { class: 'form-control', placeholder: 'Email' } })}}
+    {{ form_row(registrationForm.email, { attr: { class: 'form-control', placeholder: 'Email' } })}}
   </div>
         
         {{ form_row(registrationForm.plainPassword, {
-            label: "Hasło ", 
+             
             attr: { class: 'form-control',
             placeholder: 'Hasło '}
         }) }}
         {{ form_row(registrationForm.agreeTerms, {
-            label: 'Zgadzam się z regulaminem ',
+            label: 'Zgadzam się z regulaminem',
             attr: { class: "form-check-input"}
         }) }}
 
