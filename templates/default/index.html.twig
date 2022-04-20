@@ -1,28 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DefaultController!{% endblock %}
+{% block title %}Start Page{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-    <a href="{{ path('app_register') }}">Register</a>
-    <a href="{{ path('app_login') }}">Login</a>
-    {% endif %}
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <a href="{{ path('app_logout') }}">logout</a>
-    <a href="{{ path('app_announcements') }}">Announcements Page</a>
-    {% endif %}
-    {% if is_granted('ROLE_ADMIN') %}
-        <li class="nav-item">
-            <a class="nav-link" href="{{ path('admin') }}">Admin panel</a>
-        </li>
-    {% endif %}
-
+<div class="auth__container">
+    <div class="auth__title">
+        <img class="auth__title-image" src="{{ asset('build/images/logo.png') }}">
+        <h1 class="auth__title-text">olXD</h1>
+    </div>
+    <div class="auth__text">OGŁOSZENIA CEBULAKÓW</div>
+    <div class="auth__content">
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_register') }}"><button type="button" class="btn btn-outline-success main__button">Register</button></a>
+        <a href="{{ path('app_login') }}"><button type="button" class="btn btn-outline-success main__button">Login</button></a>
+        {% endif %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_announcements') }}">Announcements Page</a>
+        {% endif %}
+    </div>
 </div>
+{% endblock %}
+{% block icons %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_logout') }}">Logout</a>
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('admin') }}">Admin panel</a>
+        {% endif %}
 {% endblock %}

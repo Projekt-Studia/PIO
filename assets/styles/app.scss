@@ -1,0 +1,102 @@
+@import './variables.scss';
+@import './mixins.scss';
+@import "~bootstrap/scss/bootstrap";
+@import './auth.scss';
+
+html{
+    width:100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width:100%;
+    margin: 0 auto;
+    padding:0;
+}
+
+a {
+    text-decoration:none;
+    color: $base-color;
+    &:hover,&:focus, &:visited{
+        text-decoration:none;
+        color: black;
+    }
+}
+
+.container{
+    width:100vw;
+    height:100vh;
+    padding:0;
+    margin:0 auto;
+    padding-top: 22vh;
+}
+
+.navbar{
+    width:100vw;
+    z-index:100;
+    position: fixed;
+    top:0;
+    left:0;
+    height: 7vh;
+    background: $base-color;
+    @include shadow;
+    @include flex;
+    justify-content: space-between;
+    &__image{
+        margin:0;
+        padding:0;
+        margin-left: 2vh;
+        height: 5vh;
+    }
+    &__menu{
+        margin:0;
+        padding:0;
+        height: 5vh;
+        color: white;
+        @include flex;
+        justify-content: center;
+        a{
+            color: white;
+            text-decoration: none;
+            &:hover,&:focus, &:visited{
+                text-decoration:none;
+                color: white;
+            }
+        }
+    }
+}
+
+.main{
+    &__button{
+        text-decoration:none;
+        display: block;
+        width: 100%;
+        margin: 2vh auto;
+        font-size: 2.5rem;
+        @include lg{
+            margin: 1vw auto;
+            width: 60%;
+            font-size: 1rem;
+        }
+        color: $base-color;
+        border-color: $base-color;
+            &:hover{
+                background: $base-color;
+                border-color: $base-color;
+            }
+    }
+    &__link{
+        color: $base-color;
+    }
+}
+.form-control{
+    font-size: 2.5rem;
+    margin: 2vh auto;
+    
+    @include lg{
+        margin: 1vw auto;
+        font-size: 1rem;
+    }
+
+}
