@@ -51,11 +51,19 @@ a {
     }
     &__menu{
         margin:0;
-        padding:0;
+        padding:0 1vh;
         height: 5vh;
         color: white;
         @include flex;
         justify-content: center;
+        &-icons {
+            font-size: 3.5rem;
+            padding:0 2vh;
+            @include lg {
+                font-size: 1.5rem;
+                padding: 0 1vh;
+            }
+        }
         a{
             color: white;
             text-decoration: none;
