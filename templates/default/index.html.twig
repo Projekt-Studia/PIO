@@ -15,7 +15,7 @@
         <a href="{{ path('app_login') }}"><button type="button" class="btn btn-outline-success main__button">Login</button></a>
         {% endif %}
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <a href="{{ path('app_announcements') }}">Announcements Page</a>
+        <a href="{{ path('app_announcements') }}"><button type="button" class="btn btn-outline-success main__button">Announcements Page</button></a>
         {% endif %}
     </div>
 </div>

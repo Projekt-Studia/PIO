@@ -1,0 +1,51 @@
+.ann{
+    &__container{
+        overflow:auto;
+        height: 60vh;
+        text-align:center;
+        @include lg{
+            text-align: left;
+        }
+    }
+    &__item{
+        background: rgb(250,250,250);
+        border: 1px solid $shadow-color;
+        border-radius: 5px;
+        margin: 1vh;
+        padding: 1vh;
+    }
+    &__third{
+        font-size: 1.5rem;
+        @include flex;
+        justify-content: space-around;
+        @include lg{
+            justify-content: space-between;
+            font-size: 1rem;
+        } 
+    }
+    &__second{
+        font-size: 1.75rem;
+        @include lg{
+            font-size: 1rem;
+        }
+    }
+    &__title{
+        color: $base-color;
+        a {
+            color: $base-color;
+        }
+    }
+    &__text{
+        color: gray;
+    }
+    &__first{
+        @include flex;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: 2rem;
+        text-align: left;
+        @include lg{
+            font-size: 1.5rem;
+        }
+    }
+}
