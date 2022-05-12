@@ -15,6 +15,7 @@
                         <div><span class="ann__text"><i class="fa-solid fa-eye"></i>&nbsp;{{ announcement.views }}</span></div>
                         <span class="ann__text">{{ announcement.userId.email }}</span>
                         <a href="{{ path('app_show_announcement', { 'id': announcement.id }) }}"><i class="btn-danger"></i>Show</a>
+                        <a href="{{ path('app_edit_announcement', { 'id': announcement.id }) }}"><i class="btn-primary"></i>Edit</a>
                     </div>
                 </div>
             {% endif %}
