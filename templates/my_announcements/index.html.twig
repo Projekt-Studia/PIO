@@ -5,7 +5,6 @@
 {% block body %}
     <div class="ann__container">
         {% for announcement in announcements %}
-            {% if announcement.active %}
                 <div class="ann__item">
                     <div class="ann__first">
                         <span class="ann__title">{{ announcement.title }}</span>
@@ -16,9 +15,16 @@
                         <span class="ann__text">{{ announcement.userId.email }}</span>
                         <a href="{{ path('app_show_announcement', { 'id': announcement.id }) }}"><i class="btn-danger"></i>Show</a>
                         <a href="{{ path('app_edit_announcement', { 'id': announcement.id }) }}"><i class="btn-primary"></i>Edit</a>
+
+                        {% if announcement.active %}
+                        <a href="{{ path('app_activate_and_deactivate', { 'id': announcement.id }) }}"><i class="btn-primary"></i>Deactivate</a>
+                        {% endif %}
+
+                        {% if not announcement.active %}
+                            <a href="{{ path('app_activate_and_deactivate', { 'id': announcement.id }) }}"><i class="btn-primary"></i>Activate</a>
+                        {% endif %}
                     </div>
                 </div>
-            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}
