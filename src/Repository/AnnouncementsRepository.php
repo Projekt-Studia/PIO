@@ -45,32 +45,15 @@ class AnnouncementsRepository extends ServiceEntityRepository implements Announc
         }
     }
 
-    // /**
-    //  * @return Announcements[] Returns an array of Announcements objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @throws ORMException
+     * @throws OptimisticLockException
+     */
+    public function addViews(Announcements $entity, bool $flush = true): void
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $entity->setViews($entity->getViews() + 1);
+        if ($flush) {
+            $this->_em->flush();
+        }
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Announcements
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }
