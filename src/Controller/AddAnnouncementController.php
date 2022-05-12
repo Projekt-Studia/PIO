@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Announcements;
 use App\Form\AddAnnouncementsType;
 use App\Resolver\UserForAnnouncementResolverIntefrace;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,9 +16,14 @@ class AddAnnouncementController extends AbstractController
 {
     private UserForAnnouncementResolverIntefrace $announcementResolverIntefrace;
 
-    public function __construct(UserForAnnouncementResolverIntefrace $announcementResolverIntefrace)
-    {
+    private EntityManagerInterface $entityManager;
+
+    public function __construct(
+        UserForAnnouncementResolverIntefrace $announcementResolverIntefrace,
+        EntityManagerInterface $entityManager
+    ) {
         $this->announcementResolverIntefrace = $announcementResolverIntefrace;
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -25,7 +31,7 @@ class AddAnnouncementController extends AbstractController
      *
      * @IsGranted("ROLE_USER")
      *
-     * @Route("/add-announcements", name="app_add_announcements")
+     * @Route("/olxd-page/add-announcements", name="app_add_announcements")
      */
     public function index(Request $request): Response
     {
@@ -37,8 +43,14 @@ class AddAnnouncementController extends AbstractController
         $form = $this->createForm(AddAnnouncementsType::class, $announcement);
 
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Announcements $announcement */
             $announcement = $form->getData();
+            $announcement->setActive();
+            $announcement->setViews();
+            $this->entityManager->persist($announcement);
+            $this->entityManager->flush();
 
             return $this->redirectToRoute('app_announcements');
         }

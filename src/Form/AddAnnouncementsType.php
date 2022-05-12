@@ -3,10 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Announcements;
+use App\Entity\Categories;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\SubmitButton;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AddAnnouncementsType extends AbstractType
@@ -17,7 +18,10 @@ class AddAnnouncementsType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('price')
-            ->add('categoryid')
+            ->add('categoryid', EntityType::class, [
+                'class' => Categories::class,
+                'choice_label' => 'name'
+            ])
             ->add('submit', SubmitType::class)
         ;
     }

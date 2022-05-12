@@ -17,7 +17,7 @@ class ShowAnnouncementController extends AbstractController
     }
 
     /**
-     * @Route("/show/announcement/{id}", name="app_show_announcement")
+     * @Route("/olxd-page/show/announcement/{id}", name="app_show_announcement")
      */
     public function index(int $id): Response
     {

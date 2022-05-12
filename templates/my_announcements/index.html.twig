@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MyAnnouncementsController!{% endblock %}
+
+{% block body %}
+    <div class="ann__container">
+        {% for announcement in announcements %}
+            {% if announcement.active %}
+                <div class="ann__item">
+                    <div class="ann__first">
+                        <span class="ann__title">{{ announcement.title }}</span>
+                        <span class="ann__text">{{ announcement.price }} cbl</span>
+                    </div>
+                    <div class="ann__third">
+                        <div><span class="ann__text"><i class="fa-solid fa-eye"></i>&nbsp;{{ announcement.views }}</span></div>
+                        <span class="ann__text">{{ announcement.userId.email }}</span>
+                        <a href="{{ path('app_show_announcement', { 'id': announcement.id }) }}"><i class="btn-danger"></i>Show</a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
