@@ -97,6 +97,12 @@ a {
     }
     &__link{
         color: $base-color;
+        &:hover{
+            color:$shadow-color;
+        }
+        &:visited, &:focus{
+            color: $base-color;
+        }
     }
 }
 .form-control{

@@ -11,18 +11,19 @@
                         <span class="ann__title">{{ announcement.title }}</span>
                         <span class="ann__text">{{ announcement.price }} cbl</span>
                     </div>
+                    <br>
                     <div class="ann__third">
                         <div><span class="ann__text"><i class="fa-solid fa-eye"></i>&nbsp;{{ announcement.views }}</span></div>
                         <span class="ann__text">{{ announcement.userId.email }}</span>
+                    </div>
+                    <div class="ann__buttons">
                         <a href="{{ path('app_show_announcement', { 'id': announcement.id }) }}"><i class="btn-danger"></i>Show</a>
                         <a href="{{ path('app_edit_announcement', { 'id': announcement.id }) }}"><i class="btn-primary"></i>Edit</a>
-
                         {% if announcement.active %}
-                        <a href="{{ path('app_activate_and_deactivate', { 'id': announcement.id }) }}"><i class="btn-primary"></i>Deactivate</a>
+                            <a href="{{ path('app_activate_and_deactivate', { 'id': announcement.id }) }}"><i class="btn-primary"></i>Deactivate</a>
                         {% endif %}
-
                         {% if not announcement.active %}
-                            <a href="{{ path('app_activate_and_deactivate', { 'id': announcement.id }) }}"><i class="btn-primary"></i>Activate</a>
+                                <a class="btn btn-outline-secondary" href="{{ path('app_activate_and_deactivate', { 'id': announcement.id }) }}">Activate</a>
                         {% endif %}
                     </div>
                 </div>
