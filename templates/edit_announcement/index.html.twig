@@ -3,6 +3,8 @@
 {% block title %}Edytuj ogłoszenie{% endblock %}
 
 {% block body %}
+
+<a href="{{path('app_my_announcements')}}"><i class="fa-solid navbar__menu-icons fa-arrow-left"></i></a>
    <div class="ann__form">
    <h3 class="ann__form-title">Edytuj ogłoszenie</h3><br>
    {{ form_start(form) }}
@@ -35,4 +37,5 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <a href="{{ path('app_logout') }}"><i class="fa-solid navbar__menu-icons fa-right-from-bracket"></i></a>
     {% endif %}
+
 {% endblock %}

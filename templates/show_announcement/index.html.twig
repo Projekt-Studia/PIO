@@ -6,6 +6,7 @@
 <style>
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
+<a href="{{app.request.headers.get('referer')}}"><i class="fa-solid navbar__menu-icons fa-arrow-left"></i></a>
 
     {% if announcement.active %}
         <div class="ann__item">
