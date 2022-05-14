@@ -122,7 +122,7 @@ class Announcements
         return $this->active;
     }
 
-    public function setActive(bool $active): self
+    public function setActive(bool $active = true): self
     {
         $this->active = $active;
 
@@ -134,7 +134,7 @@ class Announcements
         return $this->views;
     }
 
-    public function setViews(int $views): self
+    public function setViews(int $views = 0): self
     {
         $this->views = $views;
 

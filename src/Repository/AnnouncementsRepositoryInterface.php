@@ -4,8 +4,6 @@ namespace App\Repository;
 
 
 use App\Entity\Announcements;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
 
 /**
  * @method Announcements|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,4 +16,6 @@ interface AnnouncementsRepositoryInterface
     public function add(Announcements $entity, bool $flush = true): void;
 
     public function remove(Announcements $entity, bool $flush = true): void;
+
+    public function addViews(Announcements $entity, bool $flush = true): void;
 }

@@ -11,10 +11,10 @@
                     <span class="ann__title">{{ announcement.title }}</span>
                     <span class="ann__text">{{ announcement.price }} cbl</span>
                 </div>
-                <div class="ann__second"><span class="ann__text">{{ announcement.description }}</span></div>
                 <div class="ann__third">
                 <div><span class="ann__text"><i class="fa-solid fa-eye"></i>&nbsp;{{ announcement.views }}</span></div>
                 <span class="ann__text">{{ announcement.userId.email }}</span>
+                <a href="{{ path('app_show_announcement', { 'id': announcement.id }) }}"><i class="btn-danger"></i>Show</a>
                 </div>
             </div>
         {% endif %}

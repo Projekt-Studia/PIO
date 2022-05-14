@@ -17,7 +17,7 @@ class AnnouncementsController extends AbstractController
     }
 
     /**
-     * @Route("/announcements", name="app_announcements")
+     * @Route("/olxd-page/announcements", name="app_announcements")
      */
     public function index(): Response
     {

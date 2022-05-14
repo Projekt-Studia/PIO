@@ -19,7 +19,6 @@ class AnnouncementsCrudController extends AbstractCrudController
     {
 
         return [
-            NumberField::new('id'),
             TextField::new('title'),
             TextField::new('description'),
             NumberField::new('price'),
