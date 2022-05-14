@@ -3,6 +3,7 @@
 {% block title %}Ogłoszenia{% endblock %}
 
 {% block body %}
+<a href="{{path('app_default')}}"><i class="fa-solid navbar__menu-icons fa-arrow-left"></i></a>
 <div class="ann__container">
     {% for announcement in announcements %}
         {% if announcement.active %}
@@ -20,4 +21,12 @@
         {% endif %}
     {% endfor %}
 </div>
+{% endblock %}
+{% block icons %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('admin') }}"><i class="fa-solid navbar__menu-icons fa-toolbox"></i></a>
+    {% endif %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_logout') }}"><i class="fa-solid navbar__menu-icons fa-right-from-bracket"></i></a>
+    {% endif %}
 {% endblock %}
