@@ -3,6 +3,7 @@
 {% block title %}Hello MyAnnouncementsController!{% endblock %}
 
 {% block body %}
+<a href="{{path('app_default')}}"><i class="fa-solid navbar__menu-icons fa-arrow-left"></i></a>
     <div class="ann__container">
         {% for announcement in announcements %}
                 <div class="ann__item">
