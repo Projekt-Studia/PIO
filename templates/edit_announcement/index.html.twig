@@ -1,7 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EditAnnouncementController!{% endblock %}
+{% block title %}Edytuj ogłoszenie{% endblock %}
 
 {% block body %}
-    {{ form(form) }}
+   <div class="ann__form">
+   <h3 class="ann__form-title">Edytuj ogłoszenie</h3><br>
+   {{ form_start(form) }}
+   {# {{ form(form) }} #}
+      {{ form_row(form.title, {
+         attr: { class: 'form-control',
+         placeholder: 'Tytuł '}
+      }) }}
+      {{ form_row(form.description, {
+         attr: { class: 'form-control main__textarea',
+         placeholder: 'Opis '}
+      }) }}
+      {{ form_row(form.price, {
+         attr: { class: 'form-control',
+         placeholder: 'Cena '}
+      }) }}
+      {{ form_row(form.categoryid, {
+         attr: { class: 'form-control',
+         placeholder: 'Kategoria '}
+      }) }}
+      <button type="submit" class="btn btn-outline-success main__button">Edytuj</button>
+   {{ form_end(form) }}
+   </div>
+{% endblock %}
+
+{% block icons %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('admin') }}"><i class="fa-solid navbar__menu-icons fa-toolbox"></i></a>
+    {% endif %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_logout') }}"><i class="fa-solid navbar__menu-icons fa-right-from-bracket"></i></a>
+    {% endif %}
 {% endblock %}
