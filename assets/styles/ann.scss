@@ -23,6 +23,14 @@
             font-size: 1rem;
         } 
     }
+    &__buttons{
+        font-size: 1.5rem;
+        @include flex;
+        justify-content: space-around;
+        @include lg{
+            font-size: 1rem;
+        } 
+    }
     &__second{
         font-size: 1.75rem;
         @include lg{
@@ -46,6 +54,26 @@
         text-align: left;
         @include lg{
             font-size: 1.5rem;
+        }
+    }
+    &__form{
+        margin: 0 auto;
+        padding: 5vw;
+        width: 70vw;
+        text-align: center;
+        @include lg{
+            width: 30vw;
+            padding: 2vw;
+        }
+        @include shadow;
+        border: 1px solid $shadow-color;
+        border-radius: 5px;
+        &-title{
+            color: $base-color;
+            font-size: 3rem;
+            @include lg{
+                font-size:1.5rem;
+            }
         }
     }
 }
