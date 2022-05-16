@@ -3,7 +3,17 @@
 {% block title %}Ogłoszenia{% endblock %}
 
 {% block body %}
+<div class="ann__container">
+    <h2>Filters</h2>
+    {% for filter in filters %}
+                <div><a href="{{ path('app_announcements_filter', { 'categoryId': filter.id }) }}" class="ann__text">
+                        <i class="fa-solid fa-eye"></i>&nbsp;{{ filter.name }}</a></div>
+    {% endfor %}
+</div>
+    <br>
+
 <a href="{{path('app_default')}}"><i class="fa-solid navbar__menu-icons fa-arrow-left"></i></a>
+
 <div class="ann__container">
     {% for announcement in announcements %}
         {% if announcement.active %}

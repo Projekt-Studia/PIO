@@ -19,4 +19,9 @@ final class AnnouncementsResolver implements AnnouncementsResolverInterface
     {
         return $this->announcementsRepository->findAll();
     }
+
+    public function getAllAnnouncementsWithFilter(int $categoryId)
+    {
+        return $this->announcementsRepository->findBy(['categoryId' => $categoryId ]);
+    }
 }
