@@ -52,6 +52,11 @@ class Announcements
      */
     private $views;
 
+    /**
+     * @ORM\Column(type="array",  nullable=true)
+     */
+    private $filename;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +142,18 @@ class Announcements
     public function setViews(int $views = 0): self
     {
         $this->views = $views;
+
+        return $this;
+    }
+
+    public function getFilename(): ?array
+    {
+        return $this->filename;
+    }
+
+    public function setFilename(?array $filename): self
+    {
+        $this->filename = $filename;
 
         return $this;
     }

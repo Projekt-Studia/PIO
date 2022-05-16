@@ -18,6 +18,12 @@
     {% for announcement in announcements %}
         {% if announcement.active %}
             <div class="ann__item">
+        {% if announcement.filename %}
+            {% for image in announcement.filename %}
+                <img src="/images/announcements/{{ image }}" style="width: 20em;">
+            {% endfor %}
+        {% endif %}
+
                 <div class="ann__first">
                     <span class="ann__title">{{ announcement.title }}</span>
                     <span class="ann__text">{{ announcement.price }} cbl</span>
