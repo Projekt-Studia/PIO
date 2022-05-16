@@ -3,8 +3,6 @@
 {% block title %}Ogłoszenia{% endblock %}
 
 {% block body %}
-
-
 <div class="ann__container">
     <h2>Filters</h2>
     {% for filter in filters %}
@@ -14,6 +12,8 @@
 </div>
     <br>
 
+<a href="{{path('app_default')}}"><i class="fa-solid navbar__menu-icons fa-arrow-left"></i></a>
+
 <div class="ann__container">
     {% for announcement in announcements %}
         {% if announcement.active %}
@@ -22,13 +22,24 @@
                     <span class="ann__title">{{ announcement.title }}</span>
                     <span class="ann__text">{{ announcement.price }} cbl</span>
                 </div>
+                <br>
                 <div class="ann__third">
-                    <div><span class="ann__text"><i class="fa-solid fa-eye"></i>&nbsp;{{ announcement.views }}</span></div>
-                    <span class="ann__text">{{ announcement.userId.email }}</span>
-                    <a href="{{ path('app_show_announcement', { 'id': announcement.id }) }}"><i class="btn-danger"></i>Show</a>
+                <div><span class="ann__text"><i class="fa-solid fa-eye"></i>&nbsp;{{ announcement.views }}</span></div>
+                <span class="ann__text">{{ announcement.userId.email }}</span>
+                </div>
+                <div class="ann__buttons">
+                    <a class="btn btn-outline-secondary" href="{{ path('app_show_announcement', { 'id': announcement.id }) }}">Show</a>
                 </div>
             </div>
         {% endif %}
     {% endfor %}
 </div>
+{% endblock %}
+{% block icons %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('admin') }}"><i class="fa-solid navbar__menu-icons fa-toolbox"></i></a>
+    {% endif %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_logout') }}"><i class="fa-solid navbar__menu-icons fa-right-from-bracket"></i></a>
+    {% endif %}
 {% endblock %}
