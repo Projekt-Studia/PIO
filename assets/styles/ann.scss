@@ -2,17 +2,38 @@
     &__container{
         overflow:auto;
         height: 60vh;
+        width: 65vw;
         text-align:center;
         @include lg{
             text-align: left;
         }
     }
+    &__content{
+        padding:1vh;
+        @include lg{
+            @include flex;
+        }
+    }
+    &__categories{
+        background: rgb(250,250,250);
+        border: 1px solid $shadow-color;
+        width: 15vw;
+        overflow:auto;
+        height: 60vh;
+        border-radius: 5px;
+        padding: 1vh;
+        margin-right: 1vh;
+    }
+    &__category{
+        padding: 0.5vh;
+    }
     &__item{
         background: rgb(250,250,250);
         border: 1px solid $shadow-color;
         border-radius: 5px;
-        margin: 1vh;
         padding: 1vh;
+        margin-bottom:1vh;
+        margin-right: 1vh;
     }
     &__third{
         font-size: 1.5rem;
