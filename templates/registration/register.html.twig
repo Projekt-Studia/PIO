@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Rejestracja{% endblock %}
 
 {% block body %}
     <div class="auth__container">
@@ -20,11 +20,6 @@
             attr: { class: 'form-control',
             placeholder: 'Hasło '}
         }) }}
-        {{ form_row(registrationForm.agreeTerms, {
-            label: 'Zgadzam się z regulaminem',
-            attr: { class: "form-check-input"}
-        }) }}
-
         <button type="submit" class="btn btn-outline-success main__button">Zarejestruj</button>
     {{ form_end(registrationForm) }}
     </div>

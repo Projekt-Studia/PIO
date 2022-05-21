@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MyAnnouncementsController!{% endblock %}
+{% block title %}Moje ogłoszenia{% endblock %}
 
 {% block body %}
 <a href="{{path('app_default')}}"><i class="fa-solid navbar__menu-icons fa-arrow-left"></i></a>
@@ -17,13 +17,13 @@
                         <span class="ann__text">{{ announcement.userId.email }}</span>
                     </div>
                     <div class="ann__buttons">
-                        <a class="btn btn-outline-secondary" href="{{ path('app_show_announcement', { 'id': announcement.id }) }}">Show</a>
-                        <a class="btn btn-outline-secondary" href="{{ path('app_edit_announcement', { 'id': announcement.id }) }}">Edit</a>
+                        <a class="btn btn-outline-secondary" href="{{ path('app_show_announcement', { 'id': announcement.id }) }}">Pokaż</a>
+                        <a class="btn btn-outline-secondary" href="{{ path('app_edit_announcement', { 'id': announcement.id }) }}">Edytuj</a>
                         {% if announcement.active %}
-                            <a class="btn btn-outline-secondary" href="{{ path('app_activate_and_deactivate', { 'id': announcement.id }) }}">Deactivate</a>
+                            <a class="btn btn-outline-secondary" href="{{ path('app_activate_and_deactivate', { 'id': announcement.id }) }}">Dezaktywuj</a>
                         {% endif %}
                         {% if not announcement.active %}
-                            <a class="btn btn-outline-secondary" href="{{ path('app_activate_and_deactivate', { 'id': announcement.id }) }}">Activate</a>
+                            <a class="btn btn-outline-secondary" href="{{ path('app_activate_and_deactivate', { 'id': announcement.id }) }}">Aktywuj</a>
                         {% endif %}
                     </div>
                 </div>
