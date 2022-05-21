@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Start Page{% endblock %}
+{% block title %}Strona Główna{% endblock %}
 
 {% block body %}
 <div class="auth__container">
@@ -11,13 +11,13 @@
     <div class="auth__text">OGŁOSZENIA CEBULAKÓW</div>
     <div class="auth__content">
         {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-        <a href="{{ path('app_register') }}"><button type="button" class="btn btn-outline-success main__button">Register</button></a>
-        <a href="{{ path('app_login') }}"><button type="button" class="btn btn-outline-success main__button">Login</button></a>
+        <a href="{{ path('app_register') }}"><button type="button" class="btn btn-outline-success main__button">Zarejestruj się</button></a>
+        <a href="{{ path('app_login') }}"><button type="button" class="btn btn-outline-success main__button">Zaloguj się</button></a>
         {% endif %}
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <a href="{{ path('app_announcements') }}"><button type="button" class="btn btn-outline-success main__button">Announcements Page</button></a>
-        <a href="{{ path('app_add_announcements') }}"><button type="button" class="btn btn-outline-success main__button">Add Announcement</button></a>
-        <a href="{{ path('app_my_announcements') }}"><button type="button" class="btn btn-outline-success main__button">My Announcement</button></a>
+        <a href="{{ path('app_announcements') }}"><button type="button" class="btn btn-outline-success main__button">Ogłoszenia</button></a>
+        <a href="{{ path('app_add_announcements') }}"><button type="button" class="btn btn-outline-success main__button">Dodaj ogłoszenie</button></a>
+        <a href="{{ path('app_my_announcements') }}"><button type="button" class="btn btn-outline-success main__button">Moje ogłoszenia</button></a>
         {% endif %}
     </div>
 </div>

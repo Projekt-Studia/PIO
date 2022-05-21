@@ -8,7 +8,7 @@
 <div class="ann__content">
 <div class="ann__categories">
 
-    <h5 class="ann__text">Filters</h5>
+    <h5 class="ann__text">Kategorie</h5>
     <div class="ann__category">
     {% for filter in filters %}
         {% if app.request.get('categoryId') == filter.id %}
@@ -23,7 +23,7 @@
     
     {% endfor %}
         <a href="{{ path('app_announcements') }}" class="main__link">
-            <i class="fa-solid fa-chevron-right"></i>&nbsp;Reset
+            <i class="fa-solid fa-chevron-right"></i>&nbsp;Resetuj
         </a>
     </div>
 </div>
@@ -42,7 +42,7 @@
                 <span class="ann__text">{{ announcement.userId.email }}</span>
                 </div>
                 <div class="ann__buttons">
-                    <a class="btn btn-outline-secondary" href="{{ path('app_show_announcement', { 'id': announcement.id }) }}">Show</a>
+                    <a class="btn btn-outline-secondary" href="{{ path('app_show_announcement', { 'id': announcement.id }) }}">Pokaż</a>
                 </div>
             </div>
         {% endif %}
