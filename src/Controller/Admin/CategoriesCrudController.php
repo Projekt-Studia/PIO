@@ -18,7 +18,6 @@ class CategoriesCrudController extends AbstractCrudController
     {
 
         return [
-            NumberField::new('id'),
             TextField::new('name'),
         ];
     }
